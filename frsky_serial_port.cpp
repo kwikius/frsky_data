@@ -16,10 +16,10 @@
  along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
-#include <quan_matters/src/uav/frsky2wsp/protocol.cpp>
 #include "frsky_serial_port.hpp"
+#include <quan_matters/src/uav/frsky2wsp/protocol.cpp>
 
-template struct FrSky2WSP::protocol<serial_port> ;
+template struct FrSky2WSP::protocol<quan::serial_port> ;
 
 
 

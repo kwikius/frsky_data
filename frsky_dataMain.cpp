@@ -26,7 +26,7 @@
 
 #include <quan/gx/wxwidgets/from_wxString.hpp>
 #include "frsky_dataMain.h"
-#include "serial_port.hpp"
+#include <quan/serial_port.hpp>
 #include "sp_thread.hpp"
 #include "frsky_event.hpp"
 #include "tensor_proto.hpp"
@@ -298,7 +298,7 @@ void frsky_dataDialog::OnConnectDisconnect(wxCommandEvent &event)
    {
       std::string text = quan::gx::wxwidgets::from_wxString<char>(m_port_text->GetValue());
       // do a test open of the port
-      auto testsp = new serial_port(text.c_str());
+      auto testsp = new quan::serial_port(text.c_str());
       testsp->init();
       bool good = testsp->good();
       delete testsp; testsp = nullptr;

@@ -15,10 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp serial_port.cpp \
+QUAN_INCLUDE_PATH = /home/andy/website/quan-trunk/
+
+sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp $(QUAN_INCLUDE_PATH)quan_matters/src/serial_port.cpp \
 sp_thread.cpp tensor_data.cpp tensor_proto.cpp
 
-QUAN_INCLUDE_PATH = /home/andy/website/quan-trunk/
+
 
 INCLUDES = -I$(QUAN_INCLUDE_PATH)
 
@@ -35,14 +37,14 @@ LFLAGS =
 
 all : frsky_data.exe
 
-protocol.o : $(QUAN_INCLUDE_PATH)quan_matters/src/uav/frsky2wsp/protocol.cpp
-	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ 
+#protocol.o : $(QUAN_INCLUDE_PATH)quan_matters/src/uav/frsky2wsp/protocol.cpp
+#	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ 
 
 $(objects) : %.o : %.cpp
 	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ `wx-config --cppflags`
 
-frsky_data.exe : $(objects) protocol.o
-	$(LD) $(CFLAGS) $(LFLAGS) -o frsky_data.exe $(objects) protocol.o `wx-config --libs`
+frsky_data.exe : $(objects)
+	$(LD) $(CFLAGS) $(LFLAGS) -o frsky_data.exe $(objects)  `wx-config --libs`
 
 clean:
 	-rm -rf *.o *.exe

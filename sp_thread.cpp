@@ -38,7 +38,7 @@ SP_thread::~SP_thread()
 
 void* SP_thread::Entry()
 {
-  auto sp = new serial_port(m_filename.c_str());
+  auto sp = new quan::serial_port(m_filename.c_str());
   sp->init();
   
 

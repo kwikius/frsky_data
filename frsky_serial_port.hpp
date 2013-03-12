@@ -19,8 +19,8 @@
 */
 
 #include <quan/uav/frsky2wsp/protocol.hpp>
-#include "serial_port.hpp"
+#include <quan/serial_port.hpp>
 
-typedef  FrSky2WSP::protocol<serial_port> frsky_serial_port;
+typedef  FrSky2WSP::protocol<quan::serial_port> frsky_serial_port;
 
 #endif // FRSKY_DATA_FRSKY_SERIAL_PORT_HPP_INCLUDED
