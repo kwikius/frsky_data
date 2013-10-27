@@ -3,7 +3,7 @@ GUI Application to present the Data FrSky Telemetry downlink in a easily accessi
 
 The FrSky Telemetry data is read from the serial port ( or USB port using a Serial port emulator/ driver)
 
-(see http://www.softpainter.org/fpv/antenna_tracker/index.html for more details of the overall project and for details of the frsky_data app in action)
+(website coming soon with more details of the overall project and for details of the frsky_data app in action.
 
 Currently built for Linux only ( The serial port library will need rewriting for Windows and possibly Mac )
 
