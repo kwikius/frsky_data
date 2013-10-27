@@ -18,12 +18,14 @@
 QUAN_INCLUDE_PATH = /home/andy/website/quan-trunk/
 C_INCLUDE_PATH = /usr/include/i386-linux-gnu
 
-sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp $(QUAN_INCLUDE_PATH)quan_matters/src/serial_port.cpp \
+local_sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp  \
 sp_thread.cpp tensor_data.cpp tensor_proto.cpp
 
 INCLUDES = -I$(QUAN_INCLUDE_PATH) -I$(C_INCLUDE_PATH)
 
-objects = $(patsubst %.cpp,%.o,$(sources)) 
+local_objects = $(patsubst %.cpp,%.o,$(local_sources)) 
+
+objects = $(local_objects) serial_port.o
 
 CC = /opt/gcc-4.7.2/bin/g++
 LD = /opt/gcc-4.7.2/bin/g++
@@ -36,7 +38,10 @@ LFLAGS =
 
 all : frsky_data.exe
 
-$(objects) : %.o : %.cpp
+$(local_objects) : %.o : %.cpp
+	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ `wx-config --cppflags`
+
+serial_port.o : $(QUAN_INCLUDE_PATH)quan_matters/src/serial_port.cpp
 	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ `wx-config --cppflags`
 
 frsky_data.exe : $(objects)
