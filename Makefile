@@ -16,18 +16,17 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
 QUAN_INCLUDE_PATH = /home/andy/website/quan-trunk/
+C_INCLUDE_PATH = /usr/include/i386-linux-gnu
 
 sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp $(QUAN_INCLUDE_PATH)quan_matters/src/serial_port.cpp \
 sp_thread.cpp tensor_data.cpp tensor_proto.cpp
 
-
-
-INCLUDES = -I$(QUAN_INCLUDE_PATH)
+INCLUDES = -I$(QUAN_INCLUDE_PATH) -I$(C_INCLUDE_PATH)
 
 objects = $(patsubst %.cpp,%.o,$(sources)) 
 
-CC = g++
-LD = g++
+CC = /opt/gcc-4.7.2/bin/g++
+LD = /opt/gcc-4.7.2/bin/g++
 
 CFLAGS = -Wall -std=c++11
 
@@ -36,9 +35,6 @@ LFLAGS =
 .PHONY : clean all
 
 all : frsky_data.exe
-
-#protocol.o : $(QUAN_INCLUDE_PATH)quan_matters/src/uav/frsky2wsp/protocol.cpp
-#	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ 
 
 $(objects) : %.o : %.cpp
 	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ `wx-config --cppflags`
