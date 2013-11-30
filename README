@@ -1,5 +1,9 @@
-GUI Application to present the Data FrSky Telemetry downlink in a easily accessible format
-(see https://github.com/kwikius/mavlink_to_frsky for more details of the downlink)
+GUI Application to present the Data FrSky Telemetry downlink data for my DIY Antenna project in 
+a more easily accessible format.
+
+See http://www.zoomworks.org/fpv/antenna_tracker/index.html for more details oif the Tracker.
+See https://github.com/kwikius/mavlink_to_frsky for more details of the downlink.
+See my other Github projects for further code associated with the project.
 
 The FrSky Telemetry data is read from the serial port ( or USB port using a Serial port emulator/ driver)
 
