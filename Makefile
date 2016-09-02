@@ -15,20 +15,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-QUAN_INCLUDE_PATH = /home/andy/website/quan-trunk/
-C_INCLUDE_PATH = /usr/include/i386-linux-gnu
+QUAN_INCLUDE_PATH = /home/andy/cpp/projects/quan-trunk/
 
 local_sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp  \
 sp_thread.cpp tensor_data.cpp tensor_proto.cpp
 
-INCLUDES = -I$(QUAN_INCLUDE_PATH) -I$(C_INCLUDE_PATH)
+INCLUDES = -I$(QUAN_INCLUDE_PATH) 
 
 local_objects = $(patsubst %.cpp,%.o,$(local_sources)) 
 
 objects = $(local_objects) serial_port.o
 
-CC = /opt/gcc-4.7.2/bin/g++
-LD = /opt/gcc-4.7.2/bin/g++
+CC = g++
+LD = g++
 
 CFLAGS = -Wall -std=c++11
 

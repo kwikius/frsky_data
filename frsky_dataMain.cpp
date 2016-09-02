@@ -104,7 +104,8 @@ frsky_dataDialog::frsky_dataDialog(wxDialog *dlg, const wxString &title)
     latlonsizer->Add(m_port_text,0,wxALL,5);
 
     // line 2 connect button
-    auto spacer1 = new wxPanel{this,0,0, 1, 1, 0,  wxT("")};
+   // auto spacer1 = new wxPanel{this,0,0, 1, 1, 0,  wxT("")};
+    auto spacer1 = new wxPanel{this,wxID_ANY,{0,0},{1,1}};
     BtnConnect = new wxButton(this, idBtnConnect, wxT("&Connect"), wxDefaultPosition, wxSize(100,wxDefaultSize.GetHeight()), 0);
 
     latlonsizer->Add(spacer1,0,wxALL,5);
@@ -149,8 +150,11 @@ frsky_dataDialog::frsky_dataDialog(wxDialog *dlg, const wxString &title)
     latlonsizer->Add(m_downlink_text,0,wxALL,5);
 
     //line 9 spacer
-    auto spacer2 = new wxPanel{this,0,0, 1, 1, 0,  wxT("")};
-    auto spacer3 = new wxPanel{this,0,0, 1, 1, 0,  wxT("")};
+    //auto spacer2 = new wxPanel{this,0,0, 1, 1, 0,  wxT("")};
+    //auto spacer3 = new wxPanel{this,0,0, 1, 1, 0,  wxT("")};
+    auto spacer2 = new wxPanel{this,wxID_ANY,{0,0},{1,1}};
+    auto spacer3 = new wxPanel{this,wxID_ANY,{0,0},{1,1}};
+
 
     latlonsizer->Add(spacer2,0,wxALL,10);
     latlonsizer->Add(spacer3,0,wxALL,10);
