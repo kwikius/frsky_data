@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-QUAN_INCLUDE_PATH = /home/andy/cpp/projects/quan-trunk/
+QUAN_INCLUDE_PATH = quan-trunk
 
 local_sources = frsky_dataApp.cpp frsky_dataMain.cpp frsky_event.cpp frsky_serial_port.cpp  \
 sp_thread.cpp tensor_data.cpp tensor_proto.cpp
@@ -33,14 +33,26 @@ CFLAGS = -Wall -std=c++11
 
 LFLAGS =
 
-.PHONY : clean all
+.PHONY : clean all quan-trunk
 
-all : frsky_data.exe
+all : quan-trunk frsky_data.exe
+
+quan-trunk:
+	@if [ ! "`ls -A quan-trunk`" ] ; then \
+		printf "############## ERROR ##############\n"; \
+		printf "    quan-trunk is not initialized.\n"; \
+		printf "    Please run:\n"; \
+		printf "        $$ git submodule init\n"; \
+		printf "        $$ git submodule update\n"; \
+		printf "    before running make.\n"; \
+		printf "############## ERROR ##############\n"; \
+		exit 1; \
+		fi
 
 $(local_objects) : %.o : %.cpp
 	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ `wx-config --cppflags`
 
-serial_port.o : $(QUAN_INCLUDE_PATH)quan_matters/src/serial_port.cpp
+serial_port.o : $(QUAN_INCLUDE_PATH)/quan_matters/src/serial_port.cpp
 	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@ `wx-config --cppflags`
 
 frsky_data.exe : $(objects)

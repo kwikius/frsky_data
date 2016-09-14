@@ -1,0 +1,3 @@
+[submodule "quan-trunk"]
+	path = quan-trunk
+	url = https://github.com/kwikius/quan-trunk
