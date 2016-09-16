@@ -1,7 +1,7 @@
 GUI Application to present the Data FrSky Telemetry downlink data for my DIY Antenna project in 
 a more easily accessible format.
 
-See http://www.zoomworks.org/fpv/antenna_tracker/index.html for more details oif the Tracker.
+See http://www.zoomworks.org/fpv/antenna_tracker/index.html for more details of the Tracker.
 See https://github.com/kwikius/mavlink_to_frsky for more details of the downlink.
 See my other Github projects for further code associated with the project.
 
@@ -9,17 +9,26 @@ The FrSky Telemetry data is read from the serial port ( or USB port using a Seri
 
 (website coming soon with more details of the overall project and for details of the frsky_data app in action.
 
-Currently built for Linux only ( The serial port library will need rewriting for Windows and possibly Mac )
+Currently built for Linux and Mac ( The serial port library will need rewriting for Windows)
 
  prerequisites
 
-	***C++ compiler  which conforms to the C++11 standard. ***
+	*** C++ compiler  which conforms to the C++11 standard. ***
 	
 	(e.g gcc-4.7 and above) 
+
+   *** my quan library ***
+  
+      https://github.com/kwikius/quan-trunk
 	
 	*** The cross-platform wxWidgets GUI library ***
 	
-	http://www.wxwidgets.org/downloads/
+	   http://www.wxwidgets.org/downloads/
+
+
+*Acknowledgements*
+
+   Thanks to xythobuz for getting it workin on MacOS
 	
 ----------------------------------------------
 	
